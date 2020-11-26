@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
+Route::get('/admin', function () {
+    return view('admin', ['name' => 'James']);
+});

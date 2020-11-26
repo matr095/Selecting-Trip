@@ -15,7 +15,12 @@ class CreateTripTable extends Migration
     {
         Schema::create('trip', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('type');
+            $table->string('transport_number');
+            $table->timestamp('departure_date')->nullable();
+            $table->timestamp('arrival_date')->nullable();
+            $table->string('seat');
+            $table->string('gate');
         });
     }
 
