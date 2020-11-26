@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TripController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin', ['name' => 'James']);
 });
+
+Route::get('/trip', function () {
+    return view('trip', ['trips' => []]);
+});
+Route::post('/trip', [TripController::class, 'getList']);

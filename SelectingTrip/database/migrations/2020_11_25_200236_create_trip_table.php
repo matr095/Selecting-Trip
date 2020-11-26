@@ -17,6 +17,8 @@ class CreateTripTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('transport_number');
+            $table->string('departure');
+            $table->string('arrival');
             $table->timestamp('departure_date')->nullable();
             $table->timestamp('arrival_date')->nullable();
             $table->string('seat');
