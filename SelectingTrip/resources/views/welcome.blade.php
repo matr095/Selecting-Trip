@@ -48,11 +48,11 @@
                 </div>
                 <div class="form-group">
                     <label for="departure">Departure</label>
-                    <input placeholder="Where from ?" type="text" class="form-control" id="departure">
+                    <input placeholder="Where from ?" name="departure" type="text" class="form-control" id="departure">
                 </div>
                 <div class="form-group">
                     <label for="departure">Arrival</label>
-                    <input placeholder="Where to ?" type="text" class="form-control" id="arrival">
+                    <input placeholder="Where to ?" name="arrival" type="text" class="form-control" id="arrival">
                 </div>
                 <button class="form-control btn-primary">Search</button>
             </form>
