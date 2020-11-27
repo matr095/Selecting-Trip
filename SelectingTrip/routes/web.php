@@ -15,6 +15,7 @@ use App\Http\Controllers\TripController;
 */
 
 Route::get('/', function () {
+	
     return view('welcome');
 });
 
