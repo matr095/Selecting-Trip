@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,7 @@ use App\Http\Controllers\TripController;
 |
 */
 
-Route::get('/', function () {
-	
-    return view('welcome');
-});
+Route::get('/',[HomeController::class, 'index'] );
 
 Route::get('/admin', function () {
     return view('admin', ['name' => 'James']);

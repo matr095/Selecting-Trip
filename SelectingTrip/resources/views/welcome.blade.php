@@ -48,11 +48,23 @@
                 </div>
                 <div class="form-group">
                     <label for="departure">Departure</label>
-                    <input placeholder="Where from ?" name="departure" type="text" class="form-control" id="departure">
+                    <select placeholder="Where from ?" name="departure" type="text" class="form-control" id="departure">
+                        @foreach ($departures as $departure)
+                        <option value="{{ $departure->departure }}">
+                            {{ $departure->departure }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="departure">Arrival</label>
-                    <input placeholder="Where to ?" name="arrival" type="text" class="form-control" id="arrival">
+                    <select placeholder="Where to ?" name="arrival" type="text" class="form-control" id="arrival">
+                        @foreach ($arrivals as $arrival)
+                        <option value="{{ $arrival->arrival }}">
+                            {{ $arrival->arrival }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
                 <button class="form-control btn-primary">Search</button>
             </form>
