@@ -27,6 +27,9 @@ class TripController extends Controller
         $type = $request->input('type');
         $departure = $request->input('departure');
         $arrival = $request->input('arrival');
+        if($departure == $arrival) {
+            return view('trip', ['trips' => []]);
+        }
         $trips = DB::select('SELECT * from travel, routes WHERE travel.idRoute = routes.id AND ( routes.departure = ? OR routes.arrival = ?) order by departure DESC, arrival DESC', [$departure, $arrival]);
         $trips = json_decode(json_encode($trips), true);
         //get the step of the connecting flight if necessary
