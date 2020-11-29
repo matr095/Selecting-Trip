@@ -26,32 +26,59 @@
           </div>
         </nav>
         <div class="container-fluid">
-            <p>Add a trip:</p>
-            <form action="/admin" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="route">Route</label>
-                    <select placeholder="Which route ?" name="route" type="text" class="form-control" id="route">
-                        @foreach ($routes as $route)
-                        <option value="{{ $route->id }}">
-                            {{ $route->departure }} -> {{ $route->arrival }}
-                        </option>
-                        @endforeach
-                    </select>
-                    <label for="type">Type</label>
-                    <select name="type" type="text" class="form-control" id="type">
-                        <option type="text" value="Aircraft">Aircraft</option>
-                        <option type="text" value="Bus">Bus</option>
-                    </select>
-                    <label for="type">Transport number</label>
-                    <input name="transportNumber" type="text" class="form-control" id="transportNumber" />
-                     <label for="type">Departure time</label>
-                    <input name="departureTime" type="time" class="form-control" id="departureTime" />
-                     <label for="type">Arrival time</label>
-                    <input name="arrivalTime" type="time" class="form-control" id="arrivalTime" />
-                </div>
-                <button class="form-control btn-primary">Add trip</button>
-            </form>
+        	<div class="row">
+        		<div class="col-6">
+	        		<div class="card mt-2">
+	        			<div class="card-header">1. Add a route:</div>
+	        			<div class="card-body">
+			            <form action="/admin" method="POST">
+			                @csrf
+			                <div class="form-group">
+			                	<input name="typeToAdd" type="hidden" class="form-control" id="typeToAdd" value="route" />
+			                    <label for="departure">Departure</label>
+			                    <input name="departure" type="text" class="form-control" id="departure" />
+			                     <label for="arrival">Arrival time</label>
+			                    <input name="arrival" type="text" class="form-control" id="arrival" />
+			                </div>
+			                <button class="form-control btn-primary">Add route</button>
+			            </form>
+			       		</div>
+	        		</div>
+        		</div>
+        		<div class="col-6">
+	        		<div class="card mt-2">
+	        			<div class="card-header">2. Add a trip using a route:</div>
+	        			<div class="card-body">
+			            <form action="/admin" method="POST">
+			                @csrf
+			                <div class="form-group">
+			                	<input name="typeToAdd" type="hidden" class="form-control" id="typeToAdd" value="trip" />
+			                    <label for="route">Route</label>
+			                    <select placeholder="Which route ?" name="route" type="text" class="form-control" id="route">
+			                        @foreach ($routes as $route)
+			                        <option value="{{ $route->id }}">
+			                            {{ $route->departure }} -> {{ $route->arrival }}
+			                        </option>
+			                        @endforeach
+			                    </select>
+			                    <label for="type">Type</label>
+			                    <select name="type" type="text" class="form-control" id="type">
+			                        <option type="text" value="Aircraft">Aircraft</option>
+			                        <option type="text" value="Bus">Bus</option>
+			                    </select>
+			                    <label for="type">Transport number</label>
+			                    <input name="transportNumber" type="text" class="form-control" id="transportNumber" />
+			                     <label for="type">Departure time</label>
+			                    <input name="departureTime" type="time" class="form-control" id="departureTime" />
+			                     <label for="type">Arrival time</label>
+			                    <input name="arrivalTime" type="time" class="form-control" id="arrivalTime" />
+			                </div>
+			                <button class="form-control btn-primary">Add trip</button>
+			            </form>
+			        	</div>
+	        		</div>
+	        	</div>
+        	</div>
             
         </div>
         <script   src="https://code.jquery.com/jquery-3.5.1.js"   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="   crossorigin="anonymous"></script>

@@ -20,14 +20,23 @@ class AdminController extends Controller
     }
 
     public function postNewTrip(Request $request) {
-        $idRoute = $request->input('route');
-        $type = $request->input('type');
-        $transportNumber = $request->input('transportNumber');
-        $departureTime = $request->input('departureTime');
-        $arrivalTime = $request->input('arrivalTime');
-        DB::insert('insert into travel (idRoute, type, transportNumber, departureTime, arrivalTime) values (?, ?, ?, ?, ?)', [$idRoute, $type, $transportNumber, $departureTime, $arrivalTime]);
-        $routes = $this->getRoutesList();
-        return view('admin', ['routes' => $routes]);
+        if($request->input('typeToAdd') == "trip") {
+            $idRoute = $request->input('route');
+            $type = $request->input('type');
+            $transportNumber = $request->input('transportNumber');
+            $departureTime = $request->input('departureTime');
+            $arrivalTime = $request->input('arrivalTime');
+            DB::insert('insert into travel (idRoute, type, transportNumber, departureTime, arrivalTime) values (?, ?, ?, ?, ?)', [$idRoute, $type, $transportNumber, $departureTime, $arrivalTime]);
+            $routes = $this->getRoutesList();
+            return view('admin', ['routes' => $routes]);
+        } else if ($request->input('typeToAdd') == "route") {
+            $departure = $request->input('departure');
+            $arrival = $request->input('arrival');
+            DB::insert('insert into routes (departure, arrival) values (?, ?)', [$departure, $arrival]);
+            $routes = $this->getRoutesList();
+            return view('admin', ['routes' => $routes]);
+        }
+        
     }
 
     public function getRoutesList() {

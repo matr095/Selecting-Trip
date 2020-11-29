@@ -32,21 +32,6 @@
             <form action="/trip" method="POST">
                 @csrf
                 <div class="form-group">
-                  <label>Type</label>
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" name="type" id="oneway" value="One Way" checked>
-                      <label class="form-check-label" for="oneway">
-                        One way
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="type" id="return" value="Return">
-                      <label class="form-check-label" for="return">
-                        Return
-                      </label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="departure">Departure</label>
                     <select placeholder="Where from ?" name="departure" type="text" class="form-control" id="departure">
                         @foreach ($departures as $departure)
